@@ -1,9 +1,9 @@
 """
 Cool Text Maker
-By Luke Raus
+By MetaKor
 """
 
-data 		= ['01101001111110011001'] 		#A
+data     = ['01101001111110011001'] 		#A
 data.append('11101001111010011110')			#B
 data.append('01111000100010000111')			#C
 data.append('11101001100110011110')			#D
@@ -29,7 +29,7 @@ data.append('1000110001101011101110001')	#W
 data.append('1000101010001000101010001')	#X
 data.append('1000101010001000010000100')	#Y
 data.append('1111100010001000100011111')	#Z
-data.append('0000000000')						#
+data.append('0000000000')					#
 data.append('01101101101110010110')			#0
 data.append('110010010010111')				#1
 data.append('11100001001001001111')			#2
@@ -40,13 +40,13 @@ data.append('01101000111010010110')			#6
 data.append('11110001001001001000')			#7
 data.append('01101001011010010110')			#8
 data.append('01101001011100010001')			#9
-data.append('00001')								#.
-data.append('00011')								#,
-data.append('11101')								#!
+data.append('00001')						#.
+data.append('00011')						#,
+data.append('11101')						#!
 data.append('11100001001000000010')			#?
-data.append('01010')								#:
-data.append('01011')								#;
-data.append('11000')								#'
+data.append('01010')						#:
+data.append('01011')						#;
+data.append('11000')						#'
 data.append('000000111000000')				#-
 data.append('000000000000111')				#_
 data.append('000111000111000')				#=
