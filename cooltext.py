@@ -1,83 +1,86 @@
 """
 Cool Text Maker
-By MetaKor
+By Luke Raus
 """
 
-data     = ['01101001111110011001']      #A
-data.append('11101001111010011110')      #B
-data.append('01111000100010000111')      #C
-data.append('11101001100110011110')      #D
-data.append('11111000111010001111')      #E
-data.append('11111000111010001000')      #F
-data.append('01111000101110010110')      #G
-data.append('10011001111110011001')      #H
-data.append('111010010010111')           #I
-data.append('11110001000110010110')      #J
-data.append('10011010110010101001')      #K
-data.append('10001000100010001111')      #L
-data.append('1000111011101011000110001') #M
-data.append('1000111001101011001110001') #N
-data.append('01101001100110010110')      #O
-data.append('11101001111010001000')      #P
-data.append('01101001100110100111')      #Q
-data.append('11101001111010101001')      #R
-data.append('01111000011000011110')      #S
-data.append('111010010010010')           #T
-data.append('10011001100110010110')      #U
-data.append('1000110001010100101000100') #V
-data.append('1000110001101011101110001') #W
-data.append('1000101010001000101010001') #X
-data.append('1000101010001000010000100') #Y
-data.append('1111100010001000100011111') #Z
-data.append('0000000000')                #
-data.append('01101101101110010110')      #0
-data.append('110010010010111')           #1
-data.append('11100001001001001111')      #2
-data.append('11100001011100011110')      #3
-data.append('10011001111100010001')      #4
-data.append('11111000111000011110')      #5
-data.append('01101000111010010110')      #6
-data.append('11110001001001001000')      #7
-data.append('01101001011010010110')      #8
-data.append('01101001011100010001')      #9
-data.append('00001')                     #.
-data.append('00011')                     #,
-data.append('11101')                     #!
-data.append('11100001001000000010')      #?
-data.append('01010')                     #:
-data.append('01011')                     #;
-data.append('11000')                     #'
-data.append('000000111000000')           #-
-data.append('000000000000111')           #_
-data.append('000111000111000')           #=
-data.append('000010111010000')           #+
-data.append('0000100010001000100010000') #/
+DATA = dict()
+DATA['A'] = ['0110','1001','1111','1001','1001']
+DATA['B'] = ['1110','1001','1110','1001','1110']
+DATA['C'] = ['0111','1000','1000','1000','0111']
+DATA['D'] = ['1110','1001','1001','1001','1110']
+DATA['E'] = ['1111','1000','1110','1000','1111']
+DATA['F'] = ['1111','1000','1110','1000','1000']
+DATA['G'] = ['0111','1000','1011','1001','0110']
+DATA['H'] = ['1001','1001','1111','1001','1001']
+DATA['I'] = ['111','010','010','010','111']
+DATA['J'] = ['1111','0001','0001','1001','0110']
+DATA['K'] = ['1001','1010','1100','1010','1001']
+DATA['L'] = ['1000','1000','1000','1000','1111']
+DATA['M'] = ['10001','11011','10101','10001','10001']
+DATA['N'] = ['10001','11001','10101','10011','10001']
+DATA['O'] = ['0110','1001','1001','1001','0110']
+DATA['P'] = ['1110','1001','1110','1000','1000']
+DATA['Q'] = ['0110','1001','1001','1010','0111']
+DATA['R'] = ['1110','1001','1110','1010','1001']
+DATA['S'] = ['0111','1000','0110','0001','1110']
+DATA['T'] = ['111','010','010','010','010']
+DATA['U'] = ['1001','1001','1001','1001','0110']
+DATA['V'] = ['10001','10001','01010','01010','00100']
+DATA['W'] = ['10001','10001','10101','11011','10001']
+DATA['X'] = ['10001','01010','00100','01010','10001']
+DATA['Y'] = ['10001','01010','00100','00100','00100']
+DATA['Z'] = ['11111','00010','00100','01000','11111']
+DATA[' '] = ['00,','00','00','00','00']
+DATA['0'] = ['0110','1101','1011','1001','0110']
+DATA['1'] = ['110','010','010','010','111']
+DATA['2'] = ['1110','0001','0010','0100','1111']
+DATA['3'] = ['1110','0001','0111','0001','1110']
+DATA['4'] = ['1001','1001','1111','0001','0001']
+DATA['5'] = ['1111','1000','1110','0001','1110']
+DATA['6'] = ['0110','1000','1110','1001','0110']
+DATA['7'] = ['1111','0001','0010','0100','1000']
+DATA['8'] = ['0110','1001','0110','1001','0110']
+DATA['9'] = ['0110','1001','0111','0001','0001']
+DATA['.'] = ['0','0','0','0','1']
+DATA[','] = ['0','0','0','1','1']
+DATA['!'] = ['1','1','1','0','1']
+DATA['?'] = ['1110','0001','0010','0000','0010']
+DATA[':'] = ['0','1','0','1','0']
+DATA[';'] = ['0','1','0','1','1']
+DATA["'"] = ['1','1','0','0','0']
+DATA['-'] = ['000','000','111','000','000']
+DATA['_'] = ['000','000','000','000','111']
+DATA['='] = ['000','111','000','111','000']
+DATA['+'] = ['000','010','111','010','000']
+DATA['/'] = ['00001','00010','00100','01000','10000']
+DATA['#'] = ['01010','11111','01010','11111','01010']
 
-chars  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?:;'-_=+/"
-binary = ['','','','','']
-cool   = ['','','','','']
+def cooltext(uncool): # cooltext.cooltext('Heck ya')
+	"""Returns cool text as an array of strings.
+	Precondition: uncool is string"""
 
-uncool = raw_input('\nUncool text to be made cool: ')
-uncool = uncool.upper()
+	output = []
+	for item in range(len(DATA['A'])):
+		output.insert(0, ' ' * item) # Staggered initialization for alignment
+	
+	for letter in uncool.upper():
+		item_num = 0
+		if not letter in DATA: # Any unimplemented input chars replaced by '#'
+			letter = '#'
+		for item in DATA[letter]:
+			for char in item:
+				if char == '0':
+					output[item_num] += '  '
+				elif char == '1':
+					output[item_num] += '_/'
+			output[item_num] += '  ' # Inter-character spacing
+			item_num += 1
+	
+	return output
 
-#makes binary array of uncool text in binary
-for letter in uncool:
-	cur_data = data[chars.index(letter)] #cur_data contains binary data for current char
-	x = 0 #tracks place in char_data
-	y = 0 #tracks line
-	while x < len(cur_data):
-		binary[y] = binary[y] + cur_data[x:x+(len(cur_data)/5)] + '0'
-		x += len(cur_data)/5
-		y += 1
-
-#makes and prints cool text from binary array
-item_num = 0
-for item in binary:
-	cool[item_num] = cool[item_num] + ' '*(len(binary)-item_num-1)
-	for letter in binary[item_num]:
-		if letter == '0':
-			cool[item_num] = cool[item_num] + '  '
-		elif letter == '1':
-			cool[item_num] = cool[item_num] + '_/'
-	print cool[item_num]
-	item_num += 1
+if __name__ == '__main__':
+	userinput = raw_input('\nUncool text to be made cool: ')
+	coolinput = cooltext(userinput)
+	print
+	for x in coolinput:
+		print x
